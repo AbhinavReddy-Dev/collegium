@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <br>
+  <br>
+  <h1>BLOGS</h1>
+  <hr>
+  <ul class="list-group">
+    {% for blog in blogs %}
+    <li class="list-group-item"><a href="blog/{{blog.title}}">{{blog.title}}</a></li>
+    {% endfor %}
+  </ul>
+  <br/>
+  <hr/>
+  <br/>
+  <a class="btn btn-success" href="/addblog"> Add Blog</a>
+  <a href="/blogboard" class="btn btn-primary ">My Blogs</a>
+{% endblock %}

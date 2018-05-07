@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Welcome To COLLEGIUM</h1>
+    <p class="lead">We really think that you should be aware of events inside and outside the college to help gain exposure and yes!, you can write blogs that your friends might want to read too!</p>
+    {% if session.logged_in %}
+      <a href="/events" class="btn btn-primary btn-lg">Events</a>
+      <a href="/blogs" class="btn btn-success btn-lg">Blogs</a>
+    {% endif %}
+  </div>
+{% endblock %}

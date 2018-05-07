@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<br>
+  <h1>My Blogboard <small>{{session.name}}</small></h1>
+  <br>
+  <a class="btn btn-success" href="/addblog"> Add Blog</a>
+  <hr>
+
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for blog in blogs %}
+      {% if session.id == blog.users_id : %}
+        <tr>
+          <td>{{blog.users_id}}</td>
+          <td>{{blog.title}}</td>
+          <td>{{blog.author}}</td>
+          <td>{{blog.dateofcreation}}</td>
+          <td><a href="/editblog/{{blog.id}}" class="btn btn-default pull-right">Edit</a></td>
+          <td>
+            <form action="{{url_for('delete_blog', title = blog.title)}}" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+          </td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+
+{% endblock %}

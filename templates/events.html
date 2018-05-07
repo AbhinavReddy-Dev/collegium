@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>EVENTS</h1>
+<hr>
+<ul class="list-group">
+  {% for events in events %}
+  <li class="list-group-item"><a href="{{events.url}}">{{events.sitename}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
